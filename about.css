@@ -1,18 +1,21 @@
 html, body {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%;
 }
 .container {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     background: linear-gradient(to right top, #6c63ff, #7661e8, #7b5fd1, #7d5ebc, #7b5ea7);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 .card {
-    width: 1163px;
+    width: 100%;
+    max-width: 1163px;
     height: 550px;
     border-radius: 24px;
     background-color: #ffffff;
@@ -21,12 +24,12 @@ html, body {
     overflow-y: auto;
     overflow-x: hidden;
 }
-.card::-webkit-scrollbar {
-    width: 6px;
-}
+.card::-webkit-scrollbar { width: 6px; }
 .card::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 0 24px 24px 0;
+    margin-top: 24px;
+    margin-bottom: 24px;
 }
 .card::-webkit-scrollbar-thumb {
     background: linear-gradient(to bottom, #7b61ff, #a594ff);
@@ -35,9 +38,6 @@ html, body {
 }
 .card::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(to bottom, #6c52f0, #7b61ff);
-}
-.card::-webkit-scrollbar-corner {
-    background: transparent;
 }
 .img {
     width: 55px;
@@ -52,6 +52,7 @@ html, body {
     align-items: center;
     gap: 12px;
     padding: 16px 20px;
+    flex-wrap: wrap;
 }
 .name {
     margin: 0;
@@ -75,10 +76,7 @@ nav a {
     font-family: 'Poppins', sans-serif;
     font-size: 14px;
 }
-nav a.active {
-    padding: 6px 16px;
-    border-radius: 20px;
-}
+nav a.active { padding: 6px 16px; border-radius: 20px; }
 nav a.about1 {
     color: #6c63ff;
     background-color: #f0eeff;
@@ -110,10 +108,7 @@ nav a.about1 {
     margin-top: 14px;
     flex-shrink: 0;
 }
-.about-content {
-    display: flex;
-    flex-direction: column;
-}
+.about-content { display: flex; flex-direction: column; }
 .about-title {
     font-family: 'Syne', sans-serif;
     font-weight: 600;
@@ -130,13 +125,7 @@ nav a.about1 {
     margin: 0;
     margin-top: 25px;
 }
-
-.skill-head {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    color: #7b61ff;
-}
-.tool-head {
+.skill-head, .tool-head, .projects {
     font-family: 'Syne', sans-serif;
     font-weight: 700;
     color: #7b61ff;
@@ -148,24 +137,10 @@ nav a.about1 {
     padding-bottom: 6px;
     flex-shrink: 0;
 }
-.skills-scroll-wrapper::-webkit-scrollbar {
-    height: 4px;
-}
-.card::-webkit-scrollbar-track {
-    background: transparent;
-    border-radius: 0 24px 24px 0;
-    margin-top: 24px;      
-    margin-bottom: 24px;    
-}      
+.skills-scroll-wrapper::-webkit-scrollbar { height: 4px; }
 .skills-scroll-wrapper::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, #7b61ff, #a594ff);
     border-radius: 20px;
-    border: 2px solid transparent;      
-    background-clip: padding-box;       
-    margin-right: 2px;              
-}
-.skills-scroll-wrapper::-webkit-scrollbar-thumb:hover {
-    background: linear-gradient(to right, #6c52f0, #7b61ff);
 }
 .skills-grid {
     display: grid;
@@ -175,7 +150,6 @@ nav a.about1 {
     gap: 12px;
     width: max-content;
 }
-
 .skill-card {
     background: #f0eeff;
     border: 1.5px solid transparent;
@@ -185,20 +159,17 @@ nav a.about1 {
     cursor: default;
     transition: transform .25s, box-shadow .25s, border-color .25s, background .25s;
 }
-
 .skill-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 10px 28px rgba(108, 71, 255, 0.18);
     border-color: #c4b8ff;
     background: #fff;
 }
-
 .skill-card.active-card {
     background: #ffffff;
     border: 1.5px solid #c4b8ff;
     box-shadow: 0 4px 16px rgba(108, 71, 255, 0.12);
 }
-
 .skill-icon {
     width: 48px;
     height: 48px;
@@ -209,7 +180,6 @@ nav a.about1 {
     margin: 0 auto 10px;
     font-size: 1.6rem;
 }
-
 .ic-html     { background: #dff0ff; }
 .ic-css      { background: #fff3dc; }
 .ic-js       { background: #fff9d6; }
@@ -219,7 +189,6 @@ nav a.about1 {
 .ic-git      { background: #fff0e8; }
 .ic-vscode   { background: #e8f8f0; }
 .ic-supabase { background: #e8fff5; }
-
 .skill-name {
     font-family: 'Syne', sans-serif;
     font-size: 0.85rem;
@@ -252,40 +221,33 @@ nav a.about1 {
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
     z-index: 999;
-    justify-content: center;
-    align-items: center;
 }
 #popup-box {
     background: #ffffff;
     border-radius: 12px;
-    padding: 16px 24px;        
+    padding: 16px 24px;
     text-align: center;
     box-shadow: 0 8px 24px rgba(108, 71, 255, 0.2);
     font-family: 'DM Sans', sans-serif;
     color: #3d3d3d;
-    font-size: 0.85rem;       
+    font-size: 0.85rem;
     line-height: 1.6;
-    width: 250px;    
-     margin-top: -100px;            
+    width: 250px;
+    margin-top: -100px;
 }
 #popup-close {
     margin-top: 12px;
     background: #7b61ff;
     color: white;
     border: none;
-    padding: 7px 22px;         
+    padding: 7px 22px;
     border-radius: 8px;
     font-family: 'Poppins', sans-serif;
     font-size: 13px;
     cursor: pointer;
     transition: background 0.2s;
 }
-.projects{
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    color: #7b61ff;
-}
-.project-para{
+.project-para {
     font-family: 'DM Sans', sans-serif;
     font-size: 1rem;
     color: #555;
@@ -294,135 +256,173 @@ nav a.about1 {
     margin: 0;
     margin-top: 25px;
 }
+
+/* ── Download Badge ── */
 .download-section {
-            margin-top: 28px;
-            display: flex;
-            align-items: flex-start;
-            gap: 18px;
-            flex-wrap: wrap;
-        }
+    margin-top: 28px;
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+.download-label {
+    font-family: 'DM Sans', 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    color: #888;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-top: 14px;
+}
+.download-badges-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.download-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    background: #1a1a2e;
+    border: 1.5px solid rgba(124, 92, 191, 0.35);
+    border-radius: 14px;
+    padding: 10px 18px 10px 14px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(124, 92, 191, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+.download-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(124,92,191,0.12), transparent);
+    opacity: 0;
+    transition: opacity 0.25s ease;
+}
+.download-badge:hover {
+    transform: translateY(-2px);
+    border-color: rgba(124, 92, 191, 0.7);
+    box-shadow: 0 8px 28px rgba(124, 92, 191, 0.28);
+}
+.download-badge:hover::before { opacity: 1; }
+.badge-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, #7c5cbf, #5a3fa0);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(124,92,191,0.4);
+}
+.badge-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    flex: 1;
+}
+.badge-sub {
+    font-family: 'DM Sans', 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    color: #aaa;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.badge-title {
+    font-family: 'Syne', 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    color: #ffffff;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+.badge-platform-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(124, 92, 191, 0.15);
+    border: 1px solid rgba(124, 92, 191, 0.3);
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-family: 'DM Sans', 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    color: #c9b8f0;
+    font-weight: 500;
+    white-space: nowrap;
+}
+.badge-tag-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7c5cbf;
+    box-shadow: 0 0 6px #7c5cbf;
+    flex-shrink: 0;
+}
+.badge-arrow {
+    margin-left: 4px;
+    color: #7c5cbf;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+.download-badge:hover .badge-arrow { transform: translateX(3px); }
 
-        .download-label {
-            font-family: 'DM Sans', 'Poppins', sans-serif;
-            font-size: 0.78rem;
-            color: #888;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            font-weight: 500;
-            margin-top: 14px;
-        }
+/* ── TABLET (max 1024px) ── */
+@media (max-width: 1024px) {
+    .card { height: auto; min-height: 550px; border-radius: 16px; }
+    nav { padding-left: 40px; width: auto; margin-left: 10px; }
+    .conbtn { margin-left: 20px; }
+    .dashboard { padding: 20px 30px; }
+    .about-para, .project-para { max-width: 100%; }
+}
 
-        .download-badges-row {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+/* ── MOBILE (max 768px) ── */
+@media (max-width: 768px) {
+    .container { padding: 12px; align-items: flex-start; }
+    .card { height: auto; border-radius: 16px; }
+    .navbar { flex-wrap: wrap; padding: 12px 16px; gap: 8px; }
+    .img { width: 42px; height: 42px; margin-left: 0; }
+    .name { font-size: 17px; }
+    nav {
+        padding-left: 0;
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+        order: 3;
+    }
+    .conbtn { margin-left: auto; padding: 8px 16px; font-size: 13px; }
+    .dashboard { flex-direction: column; padding: 16px; gap: 0; }
+    .line { width: 50px; height: 8px; margin-top: 0; margin-bottom: 12px; }
+    .about-title { font-size: 1.5rem; }
+    .about-para, .project-para { font-size: 0.92rem; max-width: 100%; }
+    .skill-head, .tool-head, .projects { font-size: 1.3rem; }
+    .download-section { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .download-label { margin-top: 0; }
+    .download-badge { width: 100%; box-sizing: border-box; }
+    .badge-title { font-size: 0.82rem; white-space: normal; }
+    .badge-platform-tag { display: none; }
+    #popup-box {
+        width: 80vw;
+        padding: 20px 16px;
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%);
+        margin-top: 0;
+    }
+}
 
-        .download-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 14px;
-            background: #1a1a2e;
-            border: 1.5px solid rgba(124, 92, 191, 0.35);
-            border-radius: 14px;
-            padding: 10px 18px 10px 14px;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(124, 92, 191, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .download-badge::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(124,92,191,0.12), transparent);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
-
-        .download-badge:hover {
-            transform: translateY(-2px);
-            border-color: rgba(124, 92, 191, 0.7);
-            box-shadow: 0 8px 28px rgba(124, 92, 191, 0.28);
-        }
-
-        .download-badge:hover::before {
-            opacity: 1;
-        }
-
-        .badge-icon {
-            width: 38px;
-            height: 38px;
-            background: linear-gradient(135deg, #7c5cbf, #5a3fa0);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            flex-shrink: 0;
-            box-shadow: 0 2px 8px rgba(124,92,191,0.4);
-        }
-
-        .badge-text {
-            display: flex;
-            flex-direction: column;
-            gap: 1px;
-            flex: 1;
-        }
-
-        .badge-sub {
-            font-family: 'DM Sans', 'Poppins', sans-serif;
-            font-size: 0.65rem;
-            color: #aaa;
-            letter-spacing: 0.06em;
-            text-transform: uppercase;
-            font-weight: 400;
-        }
-
-        .badge-title {
-            font-family: 'Syne', 'Poppins', sans-serif;
-            font-size: 0.95rem;
-            color: #ffffff;
-            font-weight: 700;
-            letter-spacing: 0.01em;
-            white-space: nowrap;
-        }
-
-        .badge-platform-tag {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(124, 92, 191, 0.15);
-            border: 1px solid rgba(124, 92, 191, 0.3);
-            border-radius: 20px;
-            padding: 4px 12px;
-            font-family: 'DM Sans', 'Poppins', sans-serif;
-            font-size: 0.7rem;
-            color: #c9b8f0;
-            font-weight: 500;
-            white-space: nowrap;
-        }
-
-        .badge-tag-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #7c5cbf;
-            box-shadow: 0 0 6px #7c5cbf;
-            flex-shrink: 0;
-        }
-
-        .badge-arrow {
-            margin-left: 4px;
-            color: #7c5cbf;
-            font-size: 1rem;
-            transition: transform 0.2s ease;
-        }
-
-        .download-badge:hover .badge-arrow {
-            transform: translateX(3px);
-        }
-
+/* ── SMALL MOBILE (max 480px) ── */
+@media (max-width: 480px) {
+    .name { font-size: 15px; }
+    nav a { font-size: 12px; }
+    .conbtn { font-size: 12px; padding: 7px 12px; }
+    .about-title { font-size: 1.2rem; }
+    .badge-title { font-size: 0.78rem; }
+}
