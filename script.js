@@ -1,4 +1,6 @@
 $(document).ready(function () {
+
+    // ── Contact Popup ──
     $('body').append(`
         <div id="popup-overlay">
             <div id="popup-box">
@@ -31,14 +33,20 @@ $(document).ready(function () {
     $('#popup-close').on('click', function () {
         $('#popup-overlay').fadeToggle(1000);
     });
+
+    // ── Download Badges ──
+    // Place your installer files in the same folder as this script
     const downloads = {
-        'download-btn-windows': 'StudentAttendance-1.0.exe',
-        'download-btn-linux':   'studentattendance_1.0_amd64.deb',
+        'download-btn-windows': 'https://github.com/mhdhafiz12/mohmmmed-hafiz/releases/download/v1.0/StudentAttendance-1.0.exe',
+        'download-btn-linux':   'https://github.com/mhdhafiz12/mohmmmed-hafiz/releases/download/v1.0/studentattendance_1.0_amd64.deb',
     };
 
     $.each(downloads, function (id, filename) {
         $('#' + id).on('click', function (e) {
             e.preventDefault();
+
+            // Creates a hidden <a> tag, clicks it, then removes it
+            // This forces a direct download — no new tab or page navigation
             const a = document.createElement('a');
             a.href = filename;
             a.download = filename;
