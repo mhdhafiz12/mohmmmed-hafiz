@@ -403,6 +403,19 @@ nav a.about1 {
     .about-title { font-size: 1.5rem; }
     .about-para, .project-para { font-size: 0.92rem; max-width: 100%; }
     .skill-head, .tool-head, .projects { font-size: 1.3rem; }
+
+    /* ── Skills grid: wrap into rows on mobile ── */
+    .skills-scroll-wrapper {
+        overflow-x: hidden;
+    }
+    .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-flow: row;
+        grid-auto-columns: unset;
+        width: 100%;
+    }
+
     .download-section { flex-direction: column; align-items: flex-start; gap: 10px; }
     .download-label { margin-top: 0; }
     .download-badge { width: 100%; box-sizing: border-box; }
@@ -425,4 +438,9 @@ nav a.about1 {
     .conbtn { font-size: 12px; padding: 7px 12px; }
     .about-title { font-size: 1.2rem; }
     .badge-title { font-size: 0.78rem; }
+
+    /* 2 columns on very small screens */
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
