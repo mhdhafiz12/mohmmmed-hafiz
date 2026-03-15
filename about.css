@@ -451,6 +451,7 @@ nav a.about1 {
     background: #1a1033;
     border: 1px solid rgba(61, 220, 132, 0.2);
     transition: all 0.3s ease;
+    width: 447px;
 }
  
 #download-btn-android:hover {
