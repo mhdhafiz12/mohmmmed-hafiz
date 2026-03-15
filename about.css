@@ -444,3 +444,40 @@ nav a.about1 {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ── Add this to the BOTTOM of your about.css ── */
+
+#download-btn-android {
+    background: linear-gradient(135deg, rgba(61, 220, 132, 0.08), rgba(26, 110, 60, 0.15));
+    border: 1px solid rgba(61, 220, 132, 0.25);
+    transition: all 0.3s ease;
+}
+
+#download-btn-android:hover {
+    background: linear-gradient(135deg, rgba(61, 220, 132, 0.15), rgba(26, 110, 60, 0.25));
+    border-color: rgba(61, 220, 132, 0.5);
+    box-shadow: 0 0 18px rgba(61, 220, 132, 0.2);
+    transform: translateY(-2px);
+}
+
+#android-badge-icon {
+    background: linear-gradient(135deg, #3ddc84, #1a6e3c);
+    border-radius: 8px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+}
+
+#android-platform-tag {
+    background: rgba(61, 220, 132, 0.12);
+    border: 1px solid rgba(61, 220, 132, 0.3);
+}
+
+#android-dot {
+    background: #3ddc84;
+    box-shadow: 0 0 6px #3ddc84;
+}
