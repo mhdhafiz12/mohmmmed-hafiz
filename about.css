@@ -279,6 +279,7 @@ nav a.about1 {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%;
 }
 .download-badge {
     display: inline-flex;
@@ -422,7 +423,7 @@ nav a.about1 {
     .badge-title { font-size: 0.82rem; white-space: normal; }
     .badge-platform-tag { display: none; }
     #popup-box {
-        width: 80vw;
+        width: 100vw;
         padding: 20px 16px;
         left: 50% !important;
         top: 50% !important;
