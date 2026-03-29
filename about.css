@@ -295,6 +295,7 @@ nav a.about1 {
     box-shadow: 0 4px 20px rgba(124, 92, 191, 0.15);
     position: relative;
     overflow: hidden;
+    box-sizing: border-box;
 }
 .download-badge::before {
     content: '';
@@ -446,26 +447,24 @@ nav a.about1 {
     }
 }
 
-/* ── Add this to the BOTTOM of your about.css ── */
-
+/* ── Android badge — matches Windows/Linux width ── */
 #download-btn-android {
     background: #1a1033;
     border: 1px solid rgba(61, 220, 132, 0.2);
     transition: all 0.3s ease;
-    width: 447px;
 }
- 
+
 #download-btn-android:hover {
     border-color: rgba(61, 220, 132, 0.5);
     box-shadow: 0 0 18px rgba(61, 220, 132, 0.2);
     transform: translateY(-2px);
 }
- 
+
 #android-platform-tag {
     background: rgba(61, 220, 132, 0.12);
     border: 1px solid rgba(61, 220, 132, 0.3);
 }
- 
+
 #android-dot {
     background: #3ddc84;
     box-shadow: 0 0 6px #3ddc84;
